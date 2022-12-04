@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database-deployment
+  labels:
+    app: databasemysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: databasemysql
+  template:
+    metadata:
+      labels:
+        app: databasemysql
+    spec:
+      containers:
+      - name: databasemysql
+        image: titanpxp/databasemysql:2.0
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+           memory: "128Mi"
+           cpu: "500m"
+        ports:
+        - containerPort: 3306
+          
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    app: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: titanpxp/backend:2.0
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+           memory: "128Mi"
+           cpu: "500m"
+        ports:
+        - containerPort: 80
+          
+
