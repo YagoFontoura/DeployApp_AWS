@@ -22,30 +22,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: docker/build-push-action@v3
+
+    - uses: actions/checkout@v3
+
     - name: Build the Database image
-      run: docker build ./database --file Dockerfile --tag titanpxp/databasemysql:2.0
-
-    - uses: docker/build-push-action@v3
-    - name: Build the backend image
-      run: docker build ./backend --file Dockerfile --tag titanpxp/backend:2.0
-
-    - uses: docker/build-push-action@v3
-    - name: Build the frontend image
-      run: docker build l/public --file Dockerfile --tag titanpxp/frontend-application:2.0
-  push:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: docker/build-push-action@v3
-    - name: Build the Database image
-      run: docker image push titanpxp/databasemysql:2.0
-    
-    - uses: docker/build-push-action@v3
-    - name: Build the Database image
-      run: docker image push titanpxp/backend:2.0
-
-    - uses: docker/build-push-action@v3
-    - name: Build the Database image
-      run: docker image push titanpxp/frontend-application:2.0
+      run: docker build ./database --file Dockerfile --tag titanpxp/databasemysql:$(date +%s)
