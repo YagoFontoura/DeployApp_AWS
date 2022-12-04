@@ -28,17 +28,17 @@ jobs:
     
     - name: Build the Database image
       working-directory: database
-      run: docker build . --file Dockerfile --tag titanpxp/databasemysql:$(date +%s)
+      run: docker build . --file Dockerfile --tag titanpxp/databasemysql:2.0
       
     - uses: actions/checkout@v3
     - name: Build the backend image
       working-directory: backend
-      run: docker build . --file Dockerfile --tag titanpxp/backend:$(date +%s)
+      run: docker build . --file Dockerfile --tag titanpxp/backend:2.0
 
     - uses: actions/checkout@v3
     - name: Build the frontend image
       working-directory: public
-      run: docker build . --file Dockerfile --tag titanpxp/frontend-application:$(date +%s)
+      run: docker build . --file Dockerfile --tag titanpxp/frontend-application:2.0
 
 
   Push-Repository:
@@ -49,13 +49,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Database image
-      run: docker image push titanpxp/databasemysql:$(date +%s)
+      run: docker image push titanpxp/databasemysql:2.0
     
     - uses: actions/checkout@v3
     - name: Build the Database image
-      run: docker image push titanpxp/backend:$(date +%s)
+      run: docker image push titanpxp/backend:2.0
 
     - uses: actions/checkout@v3
     - name: Build the Database image
-      run: docker image push titanpxp/frontend-application:$(date +%s)
+      run: docker image push titanpxp/frontend-application:2.0
 
