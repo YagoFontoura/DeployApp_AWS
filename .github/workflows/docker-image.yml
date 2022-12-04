@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  login:
+  Login-DockerHub:
     runs-on: ubuntu-latest
     steps:
       -
@@ -17,7 +17,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-  build:
+  Build-images:
 
     runs-on: ubuntu-latest
 
@@ -26,5 +26,31 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Build the Database image
-      working-directory: backend
+      working-directory: database
       run: docker build . --file Dockerfile --tag titanpxp/databasemysql:$(date +%s)
+      
+    - uses: actions/checkout@v3
+    - name: Build the backend image
+      working-directory: backend
+      run: docker build . --file Dockerfile --tag titanpxp/backend:2.0
+
+    - uses: actions/checkout@v3
+    - name: Build the frontend image
+      working-directory: public
+      run: docker build . --file Dockerfile --tag titanpxp/frontend-application:2.0
+  Push-Repository:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Database image
+      run: docker image push titanpxp/databasemysql:2.0
+    
+    - uses: actions/checkout@v3
+    - name: Build the Database image
+      run: docker image push titanpxp/backend:2.0
+
+    - uses: actions/checkout@v3
+    - name: Build the Database image
+      run: docker image push titanpxp/frontend-application:2.0
