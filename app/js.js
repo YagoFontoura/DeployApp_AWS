@@ -5,7 +5,7 @@ $("#button-blue").on("click", function() {
     var txt_comentario = $("#comment").val();
 
     $.ajax({
-        url: "http://localhost",
+        url: "http://localhost/api.php",
         type: "post",
         data: {nome: txt_nome, comentario: txt_comentario, email: txt_email},
         beforeSend: function() {
