@@ -1,1 +1,1 @@
-kubectl apply -f mysecret.yaml -f service.yaml -f deployment.yaml
+kubectl apply -f service.yaml -f deployment.yaml

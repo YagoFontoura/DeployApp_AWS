@@ -38,7 +38,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: titanpxp/backend:2.0
+        image: titanpxp/backend:2.1
         resources:
           requests:
             memory: "64Mi"
@@ -69,7 +69,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: titanpxp/frontend-application:2.0    
+        image: titanpxp/frontend-application:2.1    
         resources:
           requests:
             memory: "64Mi"

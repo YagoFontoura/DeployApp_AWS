@@ -3,4 +3,4 @@ RUN docker-php-ext-install mysqli
 COPY . /var/www/html
 WORKDIR /var/www/html
 
-EXPOSE 8080
+EXPOSE 80
