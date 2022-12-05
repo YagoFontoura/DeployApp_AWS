@@ -1,8 +1,8 @@
 <?php
-$servername = 'mysql-connection'
-$username = 'root'
-$password = 'Senha123'
-$database = 'BancodeDados'
+$servername = "mysql-connection";
+$username = "root";
+$password = "Senha123";
+$database = "BancodeDados";
 
 
 // Criar conexão

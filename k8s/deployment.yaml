@@ -14,7 +14,7 @@ spec:
         app: databasemysql
     spec:
       containers:
-      - image: titanpxp/databasemysql:2.2
+      - image: titanpxp/databasemysql:2.4
         name: databasemysql
         ports:
         - containerPort: 3306
@@ -38,7 +38,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: titanpxp/backend:2.2
+        image: titanpxp/backend:2.4
         resources:
           requests:
             memory: "64Mi"
