@@ -15,6 +15,13 @@ spec:
     spec:
       containers:
       - image: titanpxp/databasemysql:2.5
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+           memory: "128Mi"
+           cpu: "500m"
         name: databasemysql
         ports:
         - containerPort: 3306
